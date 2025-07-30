@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patient-app
+  template:
+    metadata:
+      labels:
+        app: patient-app
+    spec:
+      containers:
+        - name: patient-container
+          image: ahmedarafa404/patient-app:latest  # غيّر ده لو عندك اسم تاني
+          ports:
+            - containerPort: 8000
